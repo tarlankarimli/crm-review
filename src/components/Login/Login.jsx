@@ -6,7 +6,7 @@ const layout = {
       span: 8,
     },
     wrapperCol: {
-      span: 6,
+      span: 8,
     },
   };
   const tailLayout = {
@@ -26,7 +26,9 @@ const layout = {
     };
   
     return (
-      <Form
+      <div className="login-bg">
+        <h3>SIGN IN</h3>
+        <Form
         {...layout}
         name="basic"
         initialValues={{
@@ -34,6 +36,7 @@ const layout = {
         }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
+        className = "login-form"
       >
         <Form.Item
           label="Username"
@@ -71,6 +74,7 @@ const layout = {
           </Button>
         </Form.Item>
       </Form>
+      </div>
     );
   };
 

@@ -1,0 +1,19 @@
+.dashboard {
+    height: 100vh;
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+        h3 {
+            font-size: 2.9rem;
+            color: #fff;
+            margin: 0;
+        }
+    }
+    .trigger {
+        color: #fff;
+        font-size: 2.5rem;
+        padding-left: 2rem;
+    }
+}

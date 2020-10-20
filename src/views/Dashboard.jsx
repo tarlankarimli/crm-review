@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Layout, Menu } from 'antd';
+import Chat from '../components/DashboardContent/DashboardContent'
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -10,47 +11,53 @@ import {
 
 const { Header, Sider, Content } = Layout;
 function Dashboard() {
-    const [collapsed, setCollapsed] = useState(false);
-    const toggle = () => {
-        setCollapsed(!collapsed);
-      };
-    
-    return (
-        <Layout className="dashboard">
-        <Sider trigger={null} collapsible collapsed={collapsed}>
-          <div className="logo"><h3>CRM</h3></div>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            <Menu.Item key="1" icon={<UserOutlined />}>
-              nav 1
+  const [collapsed, setCollapsed] = useState(false);
+  const [menu, setMenu] = useState('1');
+  const toggle = () => {
+    setCollapsed(!collapsed);
+  };
+
+  return (
+    <Layout className="dashboard">
+      <Sider trigger={null} collapsible collapsed={collapsed}>
+        <div className="logo"><h3 onClick = {() => {setMenu('1')}}>CRM</h3></div>
+        <Menu
+          theme="dark"
+          mode="inline"
+          defaultSelectedKeys={['1']}
+          onClick={({ key }) => { setMenu(key) }}
+          selectedKeys={[menu]}>
+          <Menu.Item key="1" icon={<UserOutlined />}>
+            nav 1
             </Menu.Item>
-            <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-              nav 2
+          <Menu.Item key="2" icon={<VideoCameraOutlined />}>
+            nav 2
             </Menu.Item>
-            <Menu.Item key="3" icon={<UploadOutlined />}>
-              nav 3
+          <Menu.Item key="3" icon={<UploadOutlined />}>
+            nav 3
             </Menu.Item>
-          </Menu>
-        </Sider>
-        <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0 }}>
-            {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-              className: 'trigger',
-              onClick: toggle,
-            })}
-          </Header>
-          <Content
-            className="site-layout-background"
-            style={{
-              margin: '24px 16px',
-              padding: 24,
-              minHeight: 280,
-            }}
-          >
-            Content
+        </Menu>
+      </Sider>
+      <Layout className="site-layout">
+        <Header className="site-layout-background" style={{ padding: 0 }}>
+          {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+            className: 'trigger',
+            onClick: toggle,
+          })}
+        </Header>
+        <Content
+          className="site-layout-background"
+          style={{
+            margin: '24px 16px',
+            padding: 24,
+            minHeight: 280,
+          }}
+        >
+          <Chat/>
           </Content>
-        </Layout>
       </Layout>
-    )
+    </Layout>
+  )
 }
 
 export default Dashboard

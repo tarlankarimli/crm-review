@@ -1,6 +1,8 @@
 import React from 'react';
 import { Layout } from "antd";
-import Counts from './Counts/Counts'
+import Counts from './Counts/Counts';
+import Chart from './Chart/Chart'
+
 
 const { Content } = Layout;
 
@@ -12,14 +14,13 @@ function DashboardContent() {
                         <Counts titleCard="CUSTOMER COUNT"/>
                         <Counts titleCard="TICKET COUNT"/>
                     </div>
-                    <h3>sdsd</h3>
+                    <Chart/>
                 </div>
                 <div className="counts_down">
                     <Counts titleCard="OPEN TICKET COUNT"/>
                     <Counts titleCard="CLOSED TICKET COUNT"/>
                     <Counts titleCard="WAITING TICKET COUNT"/>
                 </div>
-
             </Content>
     )
 }

@@ -27,7 +27,6 @@
     height: 70%;
     
     &_left {
-        width: 30%;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -42,4 +41,8 @@
 
 .ant-layout-content {
     height: 100%;
+}
+.chartjs-render-monitor {
+    height: 400px;
+    width: 700px;
 }

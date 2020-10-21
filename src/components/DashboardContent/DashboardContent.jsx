@@ -6,23 +6,21 @@ const { Content } = Layout;
 
 function DashboardContent() {
     return (
-        <div>
             <Content >
                 <div className="counts">
                     <div className="counts_left">
-                        <Counts />
-                        <Counts />
+                        <Counts titleCard="CUSTOMER COUNT"/>
+                        <Counts titleCard="TICKET COUNT"/>
                     </div>
                     <h3>sdsd</h3>
                 </div>
                 <div className="counts_down">
-                    <Counts />
-                    <Counts />
-                    <Counts />
+                    <Counts titleCard="OPEN TICKET COUNT"/>
+                    <Counts titleCard="CLOSED TICKET COUNT"/>
+                    <Counts titleCard="WAITING TICKET COUNT"/>
                 </div>
 
             </Content>
-        </div>
     )
 }
 

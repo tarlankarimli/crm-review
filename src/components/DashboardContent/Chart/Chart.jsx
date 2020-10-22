@@ -6,11 +6,11 @@ function Chart() {
 
 const chart = () => {
     setChartData({
-        labels: ['monday', 'tuesday', 'wednesday', 'thursday','friday'],
+        labels: ['customer', 'ticket', 'open ticket', 'closed ticket','waiting ticket'],
         datasets: [
             {
                 label: 'level of bla bla',
-                data: [32,45,12,79,69],
+                data: [45,25,10,35,15],
                 backgroundColor: ['rgba(75,192,192,0.6'],
                 borderWidth: 4
             }

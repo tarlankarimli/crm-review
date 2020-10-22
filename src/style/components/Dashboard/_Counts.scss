@@ -1,16 +1,18 @@
 .site-card-border-less-wrapper {
-    padding: 10px 100px;
+    padding: 0 30px;
+    width: 100%;
 
     .counts-card {
-      width: 300px;
       text-align: center;
       font-weight: 600;
       height: 150px;
       
        p {
-        margin: 5%;
         font-size: 3rem;
        }
   }
   
+}
+.ant-card {
+  width: 100% !important;
 }

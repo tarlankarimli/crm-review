@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Bar} from 'react-chartjs-2';
+import {Line} from 'react-chartjs-2';
 
 function Chart() {
     const [chartData, setChartData] = useState({})
@@ -23,7 +23,7 @@ useEffect(()=> {
 
     return (
         <div>
-            <Bar data={chartData} options={{
+            <Line data={chartData} options={{
                 responsive: true,
                 title: {text: 'Thickness scale', display: true},
                 scales: {

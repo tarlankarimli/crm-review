@@ -22,33 +22,47 @@
 }
 
 // Dashboard content
-.counts {
-    display: flex;
-    height: 70%;
-    width: 100%;
-    
-    &_left {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        width: 30%;
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 'customer chart chart chart'
+                         'product chart chart chart'
+                         'opened solved waiting total';
+    padding: 10px;
+    box-sizing: border-box;
+    grid-gap: 10px;
+
+    div {
+        margin: auto 0;
     }
 }
-.counts_down {
-    display: flex;
-    align-items: flex-end;
-    height: 30%;
-    width: 90%;
-    justify-content: space-between;
-}
 
+.customer {
+    grid-area: customer;
+}
+.product {
+    grid-area: product;
+}
+.opened {
+    grid-area: opened;
+}
+.solved {
+    grid-area: solved;
+}
+.waiting {
+    grid-area: waiting;
+}
+.total {
+    grid-area: total;
+}
+.db-chart {
+    grid-area: chart;
+}
 .ant-layout-content {
     height: 100%;
 }
 .chartjs-render-monitor {
-    width: 100% !important;
-    height: 100% !important;
-}
-.chart-container {
-    width: 70%;
-}
+        width: 75% !important;
+        height: 75% !important;
+    }

@@ -1,12 +1,21 @@
 import React from 'react';
 import Login from './views/Login';
-import Dashboard from './views/Dashboard';
+import Main from './views/Main';
+import { Switch, Route } from 'react-router-dom';
+
 import './style/App.scss';
 
 function App() {
   return (
     <div className="App">
-          <Dashboard />
+      <Switch>
+        <Route exact path="login">
+          <Login />
+        </Route>
+        <Route exact path="/">
+          <Main />
+        </Route>
+      </Switch>
     </div>
   );
 }

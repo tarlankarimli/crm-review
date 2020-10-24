@@ -1,18 +1,22 @@
 import React, { useState } from 'react'
 import { Layout, Menu } from 'antd';
-import Chat from '../components/DashboardContent/DashboardContent'
+import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import DashboardContent from '../components/DashboardContent/DashboardContent';
+import Customer from '../components/Customer/Customer';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
+  HomeOutlined,
+  BellOutlined,
+  FileTextOutlined,
+  MailOutlined,
 } from '@ant-design/icons';
 
 const { Header, Sider, Content } = Layout;
-function Dashboard() {
+function Main() {
   const [collapsed, setCollapsed] = useState(false);
-  const [menu, setMenu] = useState('1');
+  const [menu, setMenu] = useState('Dashboard');
   const toggle = () => {
     setCollapsed(!collapsed);
   };
@@ -20,21 +24,29 @@ function Dashboard() {
   return (
     <Layout className="dashboard">
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="logo"><h3 onClick = {() => {setMenu('1')}}>CRM</h3></div>
+        <div className="logo"><h3 onClick={() => { setMenu('Dashboard') }}>CRM</h3></div>
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={['1']}
+          defaultSelectedKeys={['Dashboard']}
           onClick={({ key }) => { setMenu(key) }}
           selectedKeys={[menu]}>
-          <Menu.Item key="1" icon={<UserOutlined />}>
-            nav 1
+          <Menu.Item key="Dashboard" icon={<HomeOutlined />}>
+            <Link to="/Dashboard">
+              Dashboard
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="Customers" icon={<UserOutlined />}>
+            Customers
             </Menu.Item>
-          <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-            nav 2
+          <Menu.Item key="Tickets" icon={<BellOutlined />}>
+            Tickets
             </Menu.Item>
-          <Menu.Item key="3" icon={<UploadOutlined />}>
-            nav 3
+          <Menu.Item key="Reports" icon={<FileTextOutlined />}>
+            Reports
+            </Menu.Item>
+          <Menu.Item key="MAIL" icon={<MailOutlined />}>
+            SMS / MAIL
             </Menu.Item>
         </Menu>
       </Sider>
@@ -48,15 +60,15 @@ function Dashboard() {
         <Content
           className="site-layout-background"
           style={{
-            margin: '24px 16px',
             minHeight: 280,
           }}
         >
-          <Chat/>
-          </Content>
+          {/* <DashboardContent /> */}
+          <Customer/>
+        </Content>              
       </Layout>
     </Layout>
   )
 }
 
-export default Dashboard
+export default Main

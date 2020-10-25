@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { Table, Input, InputNumber, Popconfirm, Form } from 'antd';
+import {DeleteOutlined,EditOutlined,BellOutlined} from '@ant-design/icons';
 
 
 const originData = [];
 
   originData.push({
+    id: `1`,
     name: `Edrward`,
     surname: `Norton`,
+    phone: `+9942222222`,
     email: `Norton@gmail.com`,
-    age: 32,
-    address: `London Park no`,
+    birthdate: `29.06.1994`,
+    communication: `SMS`,
   });
 
 const EditableCell = ({
@@ -56,11 +59,13 @@ const EditableTable = () => {
 
   const edit = (record) => {
     form.setFieldsValue({
+      id: '',
       name: '',
       surname: '',
+      phone: '',
       email: '',
-      age: '',
-      address: '',
+      birthdate: '',
+      communication: '',
       ...record,
     });
     setEditingKey(record.key);
@@ -93,37 +98,49 @@ const EditableTable = () => {
 
   const columns = [
     {
+      title: 'id',
+      dataIndex: 'id',
+      width: '5%',
+      editable: true,
+    },
+    {
       title: 'name',
       dataIndex: 'name',
-      width: '25%',
+      width: '15%',
       editable: true,
     },
     {
         title: 'surname',
         dataIndex: 'surname',
-        width: '25%',
+        width: '15%',
+        editable: true,
+      },
+      {
+        title: 'phone',
+        dataIndex: 'phone',
+        width: '20%',
         editable: true,
       },
       {
         title: 'email',
         dataIndex: 'email',
-        width: '25%',
+        width: '20%',
         editable: true,
       },
     {
-      title: 'age',
-      dataIndex: 'age',
+      title: 'birth date',
+      dataIndex: 'birthdate',
       width: '15%',
       editable: true,
     },
     {
-      title: 'address',
-      dataIndex: 'address',
-      width: '40%',
+      title: 'communication',
+      dataIndex: 'communication',
+      width: '15%',
       editable: true,
     },
     {
-      title: 'operation',
+      title: 'edit',
       dataIndex: 'operation',
       render: (_, record) => {
         const editable = isEditing(record);
@@ -144,11 +161,21 @@ const EditableTable = () => {
           </span>
         ) : (
           <a disabled={editingKey !== ''} onClick={() => edit(record)}>
-            Edit
+            <EditOutlined/>
           </a>
         );
       },
     },
+    {
+        title: 'delete',
+        key: 'action',
+        render: () => <a><DeleteOutlined /></a>,
+      },
+      {
+        title: 'tickets',
+        key: 'tickets',
+        render: () => <a><BellOutlined /></a>,
+      },
   ];
   const mergedColumns = columns.map((col) => {
     if (!col.editable) {
@@ -159,7 +186,7 @@ const EditableTable = () => {
       ...col,
       onCell: (record) => ({
         record,
-        inputType: col.dataIndex === 'age' ? 'number' : 'text',
+        inputType: col.dataIndex === 'birthdate' ? 'number' : 'text',
         dataIndex: col.dataIndex,
         title: col.title,
         editing: isEditing(record),

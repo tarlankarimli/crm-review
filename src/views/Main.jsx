@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Layout, Menu } from 'antd';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import DashboardContent from '../components/DashboardContent/DashboardContent';
+import Tickets from '../components/Tickets/Tickets';
 import Customer from '../components/Customer/Customer';
 import {
   MenuUnfoldOutlined,
@@ -22,7 +23,7 @@ function Main() {
   };
 
   return (
-    <Layout className="dashboard">
+    <Layout className="main">
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="logo"><h3 onClick={() => { setMenu('Dashboard') }}>CRM</h3></div>
         <Menu
@@ -64,7 +65,10 @@ function Main() {
           }}
         >
           {/* <DashboardContent /> */}
-          <Customer/>
+          <Route exact path="/Dashboard">
+          <Tickets/>
+          </Route>
+          
         </Content>              
       </Layout>
     </Layout>

@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
 import { Table, Input, InputNumber, Popconfirm, Form } from 'antd';
 import {DeleteOutlined,EditOutlined,BellOutlined} from '@ant-design/icons';
-import {Link } from 'react-router-dom';
-
 
 
 const originData = [];
 
   originData.push({
     id: `1`,
-    name: `Edrward`,
-    surname: `Norton`,
-    phone: `+9942222222`,
-    email: `Norton@gmail.com`,
-    birthdate: `29.06.1994`,
-    communication: `SMS`,
+    priority: `HIGH`,
+    category: `phone`,
+    header: `report`,
+    description: `description `,
+    created : `14.06.2019`,
+    updated : `02.07.2020`,
+    status: `WAITING`,
   });
 
 const EditableCell = ({
@@ -52,7 +51,7 @@ const EditableCell = ({
   );
 };
 
-const EditableTable = () => {
+const CustomerTicket = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState('');
@@ -62,12 +61,13 @@ const EditableTable = () => {
   const edit = (record) => {
     form.setFieldsValue({
       id: '',
-      name: '',
-      surname: '',
-      phone: '',
-      email: '',
-      birthdate: '',
-      communication: '',
+      priority: '',
+      category: '',
+      header: '',
+      description: '',
+      created: '',
+      updated: '',
+      status: '',
       ...record,
     });
     setEditingKey(record.key);
@@ -106,38 +106,44 @@ const EditableTable = () => {
       editable: true,
     },
     {
-      title: 'name',
-      dataIndex: 'name',
+      title: 'priority',
+      dataIndex: 'priority',
       width: '15%',
       editable: true,
     },
     {
-        title: 'surname',
-        dataIndex: 'surname',
+        title: 'category',
+        dataIndex: 'category',
         width: '15%',
         editable: true,
       },
       {
-        title: 'phone',
-        dataIndex: 'phone',
-        width: '20%',
+        title: 'header',
+        dataIndex: 'header',
+        width: '15%',
         editable: true,
       },
       {
-        title: 'email',
-        dataIndex: 'email',
+        title: 'description',
+        dataIndex: 'description',
         width: '20%',
         editable: true,
       },
     {
-      title: 'birth date',
-      dataIndex: 'birthdate',
-      width: '15%',
+      title: 'created at',
+      dataIndex: 'created',
+      width: '10%',
       editable: true,
     },
     {
-      title: 'communication',
-      dataIndex: 'communication',
+        title: 'updated at',
+        dataIndex: 'updated',
+        width: '10%',
+        editable: true,
+      },
+    {
+      title: 'status',
+      dataIndex: 'status',
       width: '15%',
       editable: true,
     },
@@ -171,12 +177,7 @@ const EditableTable = () => {
     {
         title: 'delete',
         key: 'action',
-        render: () => <a><DeleteOutlined /></a>,
-      },
-      {
-        title: 'tickets',
-        key: 'tickets',
-        render: () => <Link to ="/CustomerTicketTable"><BellOutlined /></Link>,
+        render: () => <a href="void(0)"><DeleteOutlined /></a>,
       },
   ];
   const mergedColumns = columns.map((col) => {
@@ -215,4 +216,4 @@ const EditableTable = () => {
   );
 };
 
-export default EditableTable;
+export default CustomerTicket;

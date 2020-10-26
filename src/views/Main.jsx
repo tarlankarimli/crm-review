@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Layout, Menu } from 'antd';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import DashboardContent from '../components/DashboardContent/DashboardContent';
+import CustomerTicketTable from '../components/Customer/CustomerTicketTable/CustomerTicketTable';
+
 import Tickets from '../components/Tickets/Tickets';
 import Customer from '../components/Customer/Customer';
 import {
@@ -37,11 +39,15 @@ function Main() {
               Dashboard
             </Link>
           </Menu.Item>
-          <Menu.Item key="Customers" icon={<UserOutlined />}>
+          <Menu.Item key="Customer" icon={<UserOutlined />}>
+            <Link to = "/Customer">
             Customers
+            </Link>
             </Menu.Item>
           <Menu.Item key="Tickets" icon={<BellOutlined />}>
+          <Link to = "/Tickets">
             Tickets
+            </Link>
             </Menu.Item>
           <Menu.Item key="Reports" icon={<FileTextOutlined />}>
             Reports
@@ -65,11 +71,22 @@ function Main() {
           }}
         >
           {/* <DashboardContent /> */}
-          <Route exact path="/Dashboard">
-          <Tickets/>
-          </Route>
-          
-        </Content>              
+          <Switch>
+            <Route exact path="/Dashboard">
+              <DashboardContent />
+            </Route>
+            <Route exact path="/Customer">
+              <Customer />
+            </Route>
+            <Route exact path="/Tickets">
+              <Tickets />
+            </Route>
+            <Route exact path="/CustomerTicketTable">
+              <CustomerTicketTable />
+            </Route>
+            <Redirect to="/Dashboard" />
+          </Switch>
+        </Content>
       </Layout>
     </Layout>
   )

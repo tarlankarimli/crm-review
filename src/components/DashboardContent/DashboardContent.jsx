@@ -9,20 +9,6 @@ const { Content } = Layout;
 function DashboardContent() {
     return (
         <Content >
-            {/* <div className="counts">
-                <div className="counts_left">
-                    <Counts titleCard="CUSTOMERS" />
-                    <Counts titleCard="PRODUCTS" />
-                </div>
-                <div className="chart-container">
-                    <Chart />
-                </div>
-            </div>
-            <div className="counts_down">
-                <Counts titleCard="WAITING TICKETS" />
-                <Counts titleCard="SOLVED TICKETS" />
-                <Counts titleCard="TOTAL TICKETS" />
-            </div> */}
             <div className="grid-container">
                 <div className="customer">
                     <Counts titleCard="CUSTOMERS" />

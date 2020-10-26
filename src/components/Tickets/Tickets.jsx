@@ -131,7 +131,6 @@ const Tickets = () => {
         width: '20%',
         editable: true,
       },
-      
       {
         title: 'customer',
         dataIndex: 'customer',
@@ -186,7 +185,7 @@ const Tickets = () => {
     {
         title: 'delete',
         key: 'action',
-        render: () => <a><DeleteOutlined /></a>,
+        render: () => <a href="void(0)"><DeleteOutlined /></a>,
       },
   ];
   const mergedColumns = columns.map((col) => {

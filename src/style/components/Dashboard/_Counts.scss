@@ -1,5 +1,7 @@
 .site-card-border-less-wrapper {
+  height: 100%;
   .counts-card {
+    height: 90%;
     text-align: center;
     font-weight: 600;
       &:hover {
@@ -8,6 +10,6 @@
         cursor: pointer;
     }
      p {
-      font-size: 2.5rem;
+      font-size: 3rem;
      }
 }}

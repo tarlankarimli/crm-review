@@ -23,6 +23,7 @@
 
 // Dashboard content
 .grid-container {
+    height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -33,9 +34,6 @@
     box-sizing: border-box;
     grid-gap: 10px;
 
-    div {
-        margin: auto 0;
-    }
 }
 
 .customer {
@@ -63,6 +61,6 @@
     height: 100%;
 }
 .chartjs-render-monitor {
-        width: 75% !important;
-        height: 75% !important;
+        width: 90% !important;
+        height: 90% !important;
     }

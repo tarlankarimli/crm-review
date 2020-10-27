@@ -27,6 +27,7 @@ const layout = {
   
     return (
       <div className="login-bg">
+        <div className="login">
         <h3>SIGN IN</h3>
         <Form
         {...layout}
@@ -74,6 +75,7 @@ const layout = {
           </Button>
         </Form.Item>
       </Form>
+      </div>
       </div>
     );
   };

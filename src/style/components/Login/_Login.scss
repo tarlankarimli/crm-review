@@ -1,18 +1,19 @@
 .login-bg {
     height: 100vh;
-    background: lightblue;
+    width: 100vw;
+    background-image: url('../../../assets/login-background.jpg');
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 
     h3 {
         font-size: 3rem;
         font-weight: bold;
         color: #fff;
         letter-spacing: 1.5px;
+        text-align: center;
     }
-    .login-form {
+    .login {
         width: 80%;
     }
 }

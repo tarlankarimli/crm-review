@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { Table, Input, InputNumber, Popconfirm, Form } from 'antd';
-import {DeleteOutlined,EditOutlined,BellOutlined} from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined, BellOutlined } from '@ant-design/icons';
 
 
 const originData = [];
 
-  originData.push({
-    id: `1`,
-    priority: `HIGH`,
-    category: `phone`,
-    header: `report`,
-    description: `description `,
-    created : `14.06.2019`,
-    updated : `02.07.2020`,
-    status: `WAITING`,
-  });
+originData.push({
+  id: `1`,
+  priority: `HIGH`,
+  category: `phone`,
+  header: `report`,
+  description: `description `,
+  created: `14.06.2019`,
+  updated: `02.07.2020`,
+  status: `WAITING`,
+});
 
 const EditableCell = ({
   editing,
@@ -45,8 +45,8 @@ const EditableCell = ({
           {inputNode}
         </Form.Item>
       ) : (
-        children
-      )}
+          children
+        )}
     </td>
   );
 };
@@ -73,31 +73,6 @@ const CustomerTicket = () => {
     setEditingKey(record.key);
   };
 
-  const cancel = () => {
-    setEditingKey('');
-  };
-
-  const save = async (key) => {
-    try {
-      const row = await form.validateFields();
-      const newData = [...data];
-      const index = newData.findIndex((item) => key === item.key);
-
-      if (index > -1) {
-        const item = newData[index];
-        newData.splice(index, 1, { ...item, ...row });
-        setData(newData);
-        setEditingKey('');
-      } else {
-        newData.push(row);
-        setData(newData);
-        setEditingKey('');
-      }
-    } catch (errInfo) {
-      console.log('Validate Failed:', errInfo);
-    }
-  };
-
   const columns = [
     {
       title: 'id',
@@ -112,35 +87,35 @@ const CustomerTicket = () => {
       editable: true,
     },
     {
-        title: 'category',
-        dataIndex: 'category',
-        width: '15%',
-        editable: true,
-      },
-      {
-        title: 'header',
-        dataIndex: 'header',
-        width: '15%',
-        editable: true,
-      },
-      {
-        title: 'description',
-        dataIndex: 'description',
-        width: '20%',
-        editable: true,
-      },
+      title: 'category',
+      dataIndex: 'category',
+      width: '15%',
+      editable: true,
+    },
     {
-      title: 'created at',
+      title: 'header',
+      dataIndex: 'header',
+      width: '15%',
+      editable: true,
+    },
+    {
+      title: 'description',
+      dataIndex: 'description',
+      width: '20%',
+      editable: true,
+    },
+    {
+      title: 'created',
       dataIndex: 'created',
       width: '10%',
       editable: true,
     },
     {
-        title: 'updated at',
-        dataIndex: 'updated',
-        width: '10%',
-        editable: true,
-      },
+      title: 'updated',
+      dataIndex: 'updated',
+      width: '10%',
+      editable: true,
+    },
     {
       title: 'status',
       dataIndex: 'status',
@@ -149,36 +124,14 @@ const CustomerTicket = () => {
     },
     {
       title: 'edit',
-      dataIndex: 'operation',
-      render: (_, record) => {
-        const editable = isEditing(record);
-        return editable ? (
-          <span>
-            <a
-              href="javascript:;"
-              onClick={() => save(record.key)}
-              style={{
-                marginRight: 8,
-              }}
-            >
-              Save
-            </a>
-            <Popconfirm title="Sure to cancel?" onConfirm={cancel}>
-              <a>Cancel</a>
-            </Popconfirm>
-          </span>
-        ) : (
-          <a disabled={editingKey !== ''} onClick={() => edit(record)}>
-            <EditOutlined/>
-          </a>
-        );
-      },
+      key: 'action',
+      render: () => <a><EditOutlined /></a>,
     },
     {
-        title: 'delete',
-        key: 'action',
-        render: () => <a href="void(0)"><DeleteOutlined /></a>,
-      },
+      title: 'delete',
+      key: 'action',
+      render: () => <a href="void(0)"><DeleteOutlined /></a>,
+    },
   ];
   const mergedColumns = columns.map((col) => {
     if (!col.editable) {
@@ -208,9 +161,6 @@ const CustomerTicket = () => {
         dataSource={data}
         columns={mergedColumns}
         rowClassName="editable-row"
-        pagination={{
-          onChange: cancel,
-        }}
       />
     </Form>
   );

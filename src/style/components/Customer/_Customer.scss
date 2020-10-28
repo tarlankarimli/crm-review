@@ -54,3 +54,17 @@
     top: 100%;
     font-size: 12px;
   }
+
+  // create customer button
+.customer {
+  position: relative;
+  padding: 2rem 0;
+}
+  .create-customer {
+    position: absolute !important;
+    top: 1rem;
+    right: 1rem;
+  }
+  .card-container, .ant-tabs {
+    height: 100%;
+  }

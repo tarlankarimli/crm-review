@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Table, Input, InputNumber, Form } from 'antd';
-import { DeleteOutlined, EditOutlined, BellOutlined, EyeOutlined  } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined, BellOutlined, EyeOutlined } from '@ant-design/icons';
+import Details from '../Modals/Details';
 import { Link } from 'react-router-dom';
 
 
@@ -30,7 +31,7 @@ const EditableCell = ({
   const inputNode = inputType === 'number' ? <InputNumber /> : <Input />;
   return (
     <td {...restProps}>
-     
+
     </td>
   );
 };
@@ -38,6 +39,7 @@ const EditableCell = ({
 const EditableTable = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState(originData);
+  const [visible, setVisible] = useState(false)
 
 
   const columns = [
@@ -64,10 +66,12 @@ const EditableTable = () => {
       dataIndex: 'phone',
       width: '20%',
       editable: true,
-    },{
+    }, {
       title: 'details',
       key: 'action',
-      render: () => <a><EyeOutlined  /></a>,
+      render: () => <a><EyeOutlined onClick={()=> {
+        setVisible(true)
+      }}/></a>,
     },
     {
       title: 'edit',
@@ -77,12 +81,13 @@ const EditableTable = () => {
     {
       title: 'delete',
       key: 'action',
-      render: () => <a><DeleteOutlined /></a>,
+      render: () =>
+        <a><DeleteOutlined/></a>,
     },
     {
       title: 'tickets',
       key: 'tickets',
-      render: () => <Link to="/CustomerTicketTable"><BellOutlined /></Link>,
+      render: () => <Link to="/Customer/Ticket"><BellOutlined /></Link>,
     },
   ];
   const mergedColumns = columns.map((col) => {
@@ -101,14 +106,23 @@ const EditableTable = () => {
     };
   });
   return (
-    <Form form={form} component={false}>
-      <Table
-        bordered
-        dataSource={data}
-        columns={mergedColumns}
-      />
-    </Form>
+    <>
+      <Form form={form} component={false}>
+        <Table
+          bordered
+          dataSource={data}
+          columns={mergedColumns}
+        />
+      </Form>
+      <Details 
+          visible={visible}
+          setVisible = {setVisible}
+          name="Customer name"
+          data ={data}
+          />
+    </>
   );
+
 };
 
 export default EditableTable;

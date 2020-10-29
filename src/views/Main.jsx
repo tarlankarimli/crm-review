@@ -3,6 +3,7 @@ import { Layout, Menu } from 'antd';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import DashboardContent from '../components/DashboardContent/DashboardContent';
 import CustomerTicketTable from '../components/Customer/CustomerTicketTable/CustomerTicketTable';
+import Create from '../components/Customer/CreateCustomer'
 
 import Tickets from '../components/Tickets/Tickets';
 import Customer from '../components/Customer/Customer';
@@ -81,8 +82,11 @@ function Main() {
             <Route exact path="/Tickets">
               <Tickets />
             </Route>
-            <Route exact path="/CustomerTicketTable">
+            <Route exact path="/Customer/Ticket">
               <CustomerTicketTable />
+            </Route>
+            <Route exact path="/Create/Customer">
+              <Create />
             </Route>
             <Redirect to="/Dashboard" />
           </Switch>

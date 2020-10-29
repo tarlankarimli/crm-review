@@ -1,16 +1,19 @@
 import React from 'react';
-import { Tabs,Button  } from 'antd';
+import { Tabs, Button } from 'antd';
+import { Link } from 'react-router-dom';
 import CustomerTable from '../Customer/CustomerTable/CustomerTable';
 const { TabPane } = Tabs;
-const size ="large";
+const size = "large";
 
 function Customer() {
     return (
         <div className="customer">
             <div className="card-container">
-            <Button type="primary" className="create-customer" size={size}>
-          Create new
-        </Button>
+                <Link to="/Create/Customer">
+                    <Button type="primary" className="create-customer" size={size}>
+                        Create new
+                     </Button>
+                </Link>
                 <Tabs type="card" size={size}>
                     <TabPane tab="Customers" key="1">
                         <CustomerTable />

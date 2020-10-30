@@ -2,6 +2,7 @@ import React from 'react';
 import Login from './views/Login';
 import Main from './views/Main';
 import { Switch, Route } from 'react-router-dom';
+import { CustomerContextProvider } from './components/context/customerContext/index'
 
 import './style/App.scss';
 
@@ -13,7 +14,9 @@ function App() {
           <Login />
         </Route>
         <Route path="/">
-          <Main />
+          <CustomerContextProvider>
+            <Main />
+          </CustomerContextProvider>
         </Route>
       </Switch>
     </div>

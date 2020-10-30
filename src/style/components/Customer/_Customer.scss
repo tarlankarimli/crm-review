@@ -1,6 +1,3 @@
-.customer {
-    height: 100%;
-}
 .card-container p {
   margin: 0;
 }
@@ -57,10 +54,11 @@
 
   // create customer button
 .customer {
+  height: 100%;
   position: relative;
   padding: 2rem 0;
 }
-  .create-customer {
+  .create-new {
     position: absolute !important;
     top: 1rem;
     right: 1rem;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table, Input, InputNumber, Form } from 'antd';
+import { Table, Form } from 'antd';
 import { DeleteOutlined, EditOutlined, BellOutlined, EyeOutlined } from '@ant-design/icons';
 import Details from '../Modals/Details';
 import { Link } from 'react-router-dom';
@@ -18,23 +18,6 @@ originData.push({
   communication: `SMS`,
 });
 
-const EditableCell = ({
-  editing,
-  dataIndex,
-  title,
-  inputType,
-  record,
-  index,
-  children,
-  ...restProps
-}) => {
-  const inputNode = inputType === 'number' ? <InputNumber /> : <Input />;
-  return (
-    <td {...restProps}>
-
-    </td>
-  );
-};
 
 const EditableTable = () => {
   const [form] = Form.useForm();
@@ -76,7 +59,9 @@ const EditableTable = () => {
     {
       title: 'edit',
       key: 'action',
-      render: () => <a><EditOutlined /></a>,
+      render: () => <Link to="/Edit/Customer"><EditOutlined onClick={()=> {
+
+      }}/></Link>,
     },
     {
       title: 'delete',
@@ -99,7 +84,7 @@ const EditableTable = () => {
       ...col,
       onCell: (record) => ({
         record,
-        inputType: col.dataIndex === 'birthdate' ? 'number' : 'text',
+        input: col.dataIndex === 'birthdate' ? 'number' : 'text',
         dataIndex: col.dataIndex,
         title: col.title,
       }),

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Tabs, Button } from 'antd';
 import { Link } from 'react-router-dom';
-import CustomerTable from '../Customer/CustomerTable/CustomerTable';
+import Tickets from './Tickets';
 const { TabPane } = Tabs;
 const size = "large";
 
-function Customer() {
+function index() {
     return (
-        <div className="customer">
+        <div className="tickets">
             <div className="card-container">
                 <Link to="/Create/Customer">
                     <Button type="primary" className="create-new" size={size}>
@@ -15,8 +15,8 @@ function Customer() {
                      </Button>
                 </Link>
                 <Tabs type="card" size={size}>
-                    <TabPane tab="Customers" key="1">
-                        <CustomerTable />
+                    <TabPane tab="Tickets" key="4">
+                        <Tickets />
                     </TabPane>
                 </Tabs>
             </div>
@@ -24,4 +24,4 @@ function Customer() {
     )
 }
 
-export default Customer
+export default index

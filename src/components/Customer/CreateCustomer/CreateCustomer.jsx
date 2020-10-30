@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import customerContext from 'components/context/customerContext'
 
 import {
     Form,
@@ -9,6 +10,7 @@ import {
   } from 'antd';
   
 function CreateCustomer() {
+  const {customer} = useContext(customerContext);
   const { Option } = Select;
     const [componentSize, setComponentSize] = useState('large');
     const onFormLayoutChange = ({ size }) => {
@@ -25,19 +27,19 @@ function CreateCustomer() {
         size={componentSize}
       >        
         <Form.Item label="Name">
-          <Input />
+          <Input value={customer.name}/>
         </Form.Item>
         <Form.Item label="Surname">
-          <Input />
+          <Input value={customer.surname}/>
         </Form.Item>
         <Form.Item label="Phone">
-          <Input />
+          <Input value={customer.phone}/>
         </Form.Item>
         <Form.Item label="Email">
-          <Input />
+          <Input value={customer.email}/>
         </Form.Item>
         <Form.Item label="Birth date">
-          <DatePicker />
+          <DatePicker value={customer.birthdate}/>
         </Form.Item>
         <Form.Item label="Communication">
         <Select placeholder="Please select a communication type">

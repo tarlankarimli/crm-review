@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Table, Input, InputNumber, Popconfirm, Form } from 'antd';
-import { DeleteOutlined, EditOutlined, BellOutlined } from '@ant-design/icons';
+import { Table, Input, InputNumber, Form } from 'antd';
+import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
 
 const originData = [];
@@ -20,13 +20,13 @@ const EditableCell = ({
   editing,
   dataIndex,
   title,
-  inputType,
+  input,
   record,
   index,
   children,
   ...restProps
 }) => {
-  const inputNode = inputType === 'number' ? <InputNumber /> : <Input />;
+  const inputNode = input === 'number' ? <InputNumber /> : <Input />;
   return (
     <td {...restProps}>
       {editing ? (
@@ -142,7 +142,7 @@ const CustomerTicket = () => {
       ...col,
       onCell: (record) => ({
         record,
-        inputType: col.dataIndex === 'birthdate' ? 'number' : 'text',
+        input: col.dataIndex === 'birthdate' ? 'number' : 'text',
         dataIndex: col.dataIndex,
         title: col.title,
         editing: isEditing(record),

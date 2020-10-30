@@ -4,8 +4,9 @@ import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import DashboardContent from '../components/DashboardContent/DashboardContent';
 import CustomerTicketTable from '../components/Customer/CustomerTicketTable/CustomerTicketTable';
 import Create from '../components/Customer/CreateCustomer'
+import Edit from '../components/Customer/CreateCustomer'
 
-import Tickets from '../components/Tickets/Tickets';
+import Tickets from '../components/Tickets';
 import Customer from '../components/Customer/Customer';
 import {
   MenuUnfoldOutlined,
@@ -86,7 +87,10 @@ function Main() {
               <CustomerTicketTable />
             </Route>
             <Route exact path="/Create/Customer">
-              <Create />
+              <Create title="Create customer"/>
+            </Route>
+            <Route exact path="/Edit/Customer">
+              <Edit title="Edit customer"/>
             </Route>
             <Redirect to="/Dashboard" />
           </Switch>

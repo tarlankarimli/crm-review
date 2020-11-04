@@ -1,6 +1,9 @@
 .tickets {
     position: relative;
-    padding: 2rem 0;
-    height: 100%;
   }
-  
+    .create-ticket {
+      position: absolute !important;
+      top: .5rem;
+      right: 1rem;
+      z-index: 1;
+    }

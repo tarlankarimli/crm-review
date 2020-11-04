@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Table, Form } from 'antd';
 import {DeleteOutlined,EditOutlined} from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 
 
@@ -62,13 +63,13 @@ const EditableTable = () => {
       editable: true,
     },
   {
-    title: 'created at',
+    title: 'created',
     dataIndex: 'created',
     width: '10%',
     editable: true,
   },
   {
-      title: 'updated at',
+      title: 'updated',
       dataIndex: 'updated',
       width: '10%',
       editable: true,
@@ -82,7 +83,9 @@ const EditableTable = () => {
     {
       title: 'edit',
       key: 'action',
-      render: () => <a><EditOutlined/></a>,
+      render: (record) => <Link to="/Edit/Ticket"><EditOutlined onClick={()=> {
+
+      }}/></Link>,
     },
     {
       title: 'delete',

@@ -9,7 +9,7 @@ function index() {
     return (
         <div className="tickets">
             <div className="card-container">
-                <Link to="/Create/Customer">
+                <Link to="/Create/Ticket">
                     <Button type="primary" className="create-new" size={size}>
                         Create new
                      </Button>

@@ -3,8 +3,10 @@ import { Layout, Menu } from 'antd';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import DashboardContent from '../components/DashboardContent/DashboardContent';
 import CustomerTicketTable from '../components/Customer/CustomerTicketTable/CustomerTicketTable';
-import Create from '../components/Customer/CreateCustomer'
-import Edit from '../components/Customer/CreateCustomer'
+import CreateCustomer from '../components/Customer/CreateCustomer';
+import EditCustomer from '../components/Customer/CreateCustomer';
+import CreateTicket from 'components/Tickets/CreateTicket/';
+import EditTicket from 'components/Tickets/CreateTicket/';
 
 import Tickets from '../components/Tickets';
 import Customer from '../components/Customer/Customer';
@@ -87,10 +89,16 @@ function Main() {
               <CustomerTicketTable />
             </Route>
             <Route exact path="/Create/Customer">
-              <Create title="Create customer"/>
+              <CreateCustomer title="Create customer"/>
             </Route>
             <Route exact path="/Edit/Customer">
-              <Edit title="Edit customer"/>
+              <EditCustomer title="Edit customer"/>
+            </Route>
+            <Route exact path="/Create/Ticket">
+              <CreateTicket title="Create ticket"/>
+            </Route>
+            <Route exact path="/Edit/Ticket">
+              <EditTicket title="Edit ticket"/>
             </Route>
             <Redirect to="/Dashboard" />
           </Switch>

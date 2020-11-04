@@ -59,7 +59,7 @@ const EditableTable = () => {
     {
       title: 'edit',
       key: 'action',
-      render: () => <Link to="/Edit/Customer"><EditOutlined onClick={()=> {
+      render: (record) => <Link to="/Edit/Customer"><EditOutlined onClick={()=> {
 
       }}/></Link>,
     },

@@ -2,7 +2,8 @@ import React from 'react';
 import Login from './views/Login';
 import Main from './views/Main';
 import { Switch, Route } from 'react-router-dom';
-import { CustomerContextProvider } from './components/context/customerContext/index'
+import { CustomerContextProvider } from './components/context/customerContext/'
+import { TicketContextProvider } from './components/context/ticketContext/'
 
 import './style/App.scss';
 
@@ -15,7 +16,9 @@ function App() {
         </Route>
         <Route path="/">
           <CustomerContextProvider>
+            <TicketContextProvider>
             <Main />
+            </TicketContextProvider>
           </CustomerContextProvider>
         </Route>
       </Switch>

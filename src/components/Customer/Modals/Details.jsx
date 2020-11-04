@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Modal } from 'antd';
+import customerContext from 'components/context/customerContext'
 
-function Details({name, visible, setVisible, data}) {
-    const customer = data[0]
+function Details({visible, setVisible}) {
+    const {customer} = useContext(customerContext);
     return (
         <div>
             <Modal

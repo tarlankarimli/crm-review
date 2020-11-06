@@ -7,6 +7,7 @@ import CreateCustomer from '../components/Customer/CreateCustomer';
 import EditCustomer from '../components/Customer/CreateCustomer';
 import CreateTicket from 'components/Tickets/CreateTicket/';
 import EditTicket from 'components/Tickets/CreateTicket/';
+import Reports from 'components/Reports//';
 
 import Tickets from '../components/Tickets';
 import Customer from '../components/Customer/Customer';
@@ -54,7 +55,9 @@ function Main() {
             </Link>
             </Menu.Item>
           <Menu.Item key="Reports" icon={<FileTextOutlined />}>
+          <Link to = "/Reports">
             Reports
+            </Link>
             </Menu.Item>
           <Menu.Item key="MAIL" icon={<MailOutlined />}>
             SMS / MAIL
@@ -99,6 +102,9 @@ function Main() {
             </Route>
             <Route exact path="/Edit/Ticket">
               <EditTicket title="Edit ticket"/>
+            </Route>
+            <Route exact path="/Reports">
+              <Reports/>
             </Route>
             <Redirect to="/Dashboard" />
           </Switch>

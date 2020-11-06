@@ -20,7 +20,7 @@ function CreateTicket() {
         labelCol={{ span: 7 }}
         wrapperCol={{ span: 10 }}
         layout="horizontal"
-        initialValues={{ size: "small" }}
+        initialValues={{ size: "size" }}
         onValuesChange={onFormLayoutChange}
       >        
         <Form.Item label="Priority">

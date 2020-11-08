@@ -7,7 +7,7 @@ const size ="large";
 
 function index({title}) {
     return (
-        <div className="tickets">
+        <div className="view-container">
             <div className="card-container">
                 <Tabs type="card" size={size}>
                     <TabPane tab={title} key="4">

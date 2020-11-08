@@ -1,0 +1,15 @@
+.toggle {
+    display: flex;
+    justify-content: center;
+        &-btn {
+            width: 30rem;
+        }
+      &-switch {
+          width: 15rem;
+        padding-right: 3rem;
+        span {
+            margin-right: 1rem;
+        }
+      }
+  }
+  

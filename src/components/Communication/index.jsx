@@ -1,16 +1,17 @@
 import React from 'react';
-import { Tabs } from 'antd';
-import Reports from './Reports';
+import Communication from './Communication'
+import { Tabs  } from 'antd';
 const { TabPane } = Tabs;
-const size = "large";
+const size ="large";
+
 
 function index() {
     return (
         <div className="view-container">
             <div className="card-container">
                 <Tabs type="card" size={size}>
-                    <TabPane tab="Reports" key="5">
-                        <Reports />
+                    <TabPane tab="Communication" key="6">
+                        <Communication />
                     </TabPane>
                 </Tabs>
             </div>
@@ -18,4 +19,4 @@ function index() {
     )
 }
 
-export default index
+export default index;

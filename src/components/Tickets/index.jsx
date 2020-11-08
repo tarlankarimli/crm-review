@@ -10,7 +10,7 @@ function index() {
         <div className="tickets">
             <div className="card-container">
                 <Link to="/Create/Ticket">
-                    <Button type="primary" className="create-ticket">
+                    <Button type="primary" className="create-new" size ="large">
                         Create new
                      </Button>
                 </Link>

@@ -7,7 +7,8 @@ import CreateCustomer from '../components/Customer/CreateCustomer';
 import EditCustomer from '../components/Customer/CreateCustomer';
 import CreateTicket from 'components/Tickets/CreateTicket/';
 import EditTicket from 'components/Tickets/CreateTicket/';
-import Reports from 'components/Reports//';
+import Reports from 'components/Reports/';
+import Communication from 'components/Communication/';
 
 import Tickets from '../components/Tickets';
 import Customer from '../components/Customer/Customer';
@@ -60,17 +61,13 @@ function Main() {
             </Link>
             </Menu.Item>
           <Menu.Item key="MAIL" icon={<MailOutlined />}>
+          <Link to = "/Communication">
             SMS / MAIL
+            </Link>
             </Menu.Item>
         </Menu>
       </Sider>
       <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }}>
-          {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-            className: 'trigger',
-            onClick: toggle,
-          })}
-        </Header>
         <Content
           className="site-layout-background"
           style={{
@@ -105,6 +102,9 @@ function Main() {
             </Route>
             <Route exact path="/Reports">
               <Reports/>
+            </Route>
+            <Route exact path="/Communication">
+              <Communication/>
             </Route>
             <Redirect to="/Dashboard" />
           </Switch>

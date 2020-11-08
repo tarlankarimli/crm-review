@@ -7,7 +7,7 @@ const size = "large";
 
 function Customer() {
     return (
-        <div className="customer">
+        <div className="view-container">
             <div className="card-container">
                 <Link to="/Create/Customer">
                     <Button type="primary" className="create-new" size={size}>

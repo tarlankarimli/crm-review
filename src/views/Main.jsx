@@ -22,18 +22,15 @@ import {
   MailOutlined,
 } from '@ant-design/icons';
 
-const { Header, Sider, Content } = Layout;
+const {  Sider, Content } = Layout;
 function Main() {
   const [collapsed, setCollapsed] = useState(false);
   const [menu, setMenu] = useState('Dashboard');
-  const toggle = () => {
-    setCollapsed(!collapsed);
-  };
 
   return (
     <Layout className="main">
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="logo"><h3 onClick={() => { setMenu('Dashboard') }}>CRM</h3></div>
+        <div className="logo" ><img src="/assets/crm-logo.png" className="crm-logo" onClick={() => { setMenu('Dashboard') }}/></div>
         <Menu
           theme="dark"
           mode="inline"

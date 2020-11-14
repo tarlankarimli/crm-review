@@ -5,6 +5,11 @@
         justify-content: center;
         align-items: center;
         height: 60px;
+        padding: 5px;
+        .crm-logo {
+            width: 100%;
+            height: 100%;
+        }
         h3:hover {
             cursor: pointer;
         }
@@ -25,14 +30,17 @@
 .grid-container {
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas: 'customer chart chart chart'
-                         'product chart chart chart'
-                         'opened solved waiting total';
-    padding: 10px;
+    grid-template-areas: 'customer chart chart'
+                         'product chart chart'
+                         'solved waiting total';
+    padding: 10px 30px;
     box-sizing: border-box;
-    grid-gap: 10px;
+    grid-gap: 30px;
+    div {
+        border-radius: 4px;
+    }
 
 }
 
@@ -56,11 +64,15 @@
 }
 .db-chart {
     grid-area: chart;
+    background: #fff;
+    border-radius: 4px;
 }
 .ant-layout-content {
     height: 100%;
 }
 .chartjs-render-monitor {
-        width: 90% !important;
-        height: 90% !important;
+        width: 100% !important;
+        height: 100% !important;
     }
+
+    

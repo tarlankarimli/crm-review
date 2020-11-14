@@ -16,9 +16,6 @@ function DashboardContent() {
                 <div className="product">
                     <Counts titleCard="PRODUCTS" />
                 </div>
-                <div className="opened">
-                    <Counts titleCard="OPENED TICKETS" />
-                </div>
                 <div className="solved">
                     <Counts titleCard="SOLVED TICKETS" />
                 </div>

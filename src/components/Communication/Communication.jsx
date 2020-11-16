@@ -14,7 +14,7 @@ function Communication() {
   const onFormLayoutChange = ({ size }) => {
     setComponentSize(size);
   };
-  const onChange=(checked) => {
+  const onChange = (checked) => {
     checked === true ? setSwitchCase('E-mail') : setSwitchCase('SMS');
     console.log(switchCase);
   }
@@ -31,15 +31,23 @@ function Communication() {
         <Form.Item label="Text here">
           <Input.TextArea rows={10} />
         </Form.Item>
-        <div className="toggle">
-          <div className="toggle-switch">
-            <span>{switchCase}</span>
-            <Switch onChange={onChange}/>
-          </div>
+        <div className="com-content">
+          <div className= {switchCase === "SMS" ? "com-title_none" : "com-title"} >
           <Form.Item>
-            <Button type="primary" className="toggle-btn" >Send</Button>
-          </Form.Item>
+          <Input className="input-title" placeholder="E-mail title"/>
+        </Form.Item>
+          </div>
+          <div className="toggle">
+            <div className="toggle-switch">
+              <span>{switchCase}</span>
+              <Switch onChange={onChange} />
+            </div>
+            <Form.Item>
+              <Button type="primary" className="toggle-btn" >Send</Button>
+            </Form.Item>
+          </div>
         </div>
+
 
       </Form>
     </div>

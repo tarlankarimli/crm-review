@@ -7,7 +7,7 @@ const size = "large";
 
 function index() {
     return (
-        <div className="tickets">
+        <div className="view-container">
             <div className="card-container">
                 <Link to="/Create/Ticket">
                     <Button type="primary" className="create-new" size ="large">

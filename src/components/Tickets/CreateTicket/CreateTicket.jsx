@@ -6,10 +6,12 @@ import {
     Input,
     Button,
     DatePicker,
+    Spin,
   } from 'antd';
   
 function CreateTicket() {
   const {ticket} = useContext(ticketContext);
+  let spin = {loading: true};
     const [componentSize, setComponentSize] = useState('large');
     const onFormLayoutChange = ({ size }) => {
       setComponentSize(size);
@@ -35,9 +37,13 @@ function CreateTicket() {
         <Form.Item label="Description">
           <Input value={ticket.description}/>
         </Form.Item>
-        <Form.Item label="Customer">
+        <div className="customer-input">
+          <Form.Item label="Customer">
           <Input value={ticket.customer}/>
         </Form.Item>
+        <Spin className="load-spin"/>
+        </div>
+        
         <Form.Item label="Created">
           <DatePicker value={ticket.created}/>
         </Form.Item>

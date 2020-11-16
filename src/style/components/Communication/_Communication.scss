@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
         &-btn {
-            width: 30rem;
+            width: 32rem;
         }
       &-switch {
           width: 15rem;
@@ -11,5 +11,21 @@
             margin-right: 1rem;
         }
       }
+  }
+  .com-title {
+      .ant-form-item {
+          display: flex;
+          justify-content: center;
+      }
+      .input-title {
+          height: 3rem;
+          width: 68%;
+      }
+      .ant-form-item-control-input-content {
+          text-align: right;
+      }
+  }
+  .com-title_none {
+      display: none;
   }
   

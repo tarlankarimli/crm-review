@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Table, Form } from 'antd';
 import { DeleteOutlined, EditOutlined, BellOutlined, EyeOutlined } from '@ant-design/icons';
 import Details from '../Modals/Details';
 import { Link } from 'react-router-dom';
+import * as CustomertApi from 'api/ContactApi';
 
+const getRefresh = () => {
+  
+}
 
+// useEffect(() => {    
+//   getRefresh();
+//   // eslint-disable-next-line
+// }, [])
 
 const originData = [];
 

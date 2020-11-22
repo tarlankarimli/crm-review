@@ -22,7 +22,7 @@ import {
   MailOutlined,
 } from '@ant-design/icons';
 
-const {  Sider, Content } = Layout;
+const { Sider, Content } = Layout;
 function Main() {
   const [collapsed, setCollapsed] = useState(false);
   const [menu, setMenu] = useState('Dashboard');
@@ -30,7 +30,9 @@ function Main() {
   return (
     <Layout className="main">
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="logo" ><img src="/assets/crm-logo.png" className="crm-logo" onClick={() => { setMenu('Dashboard') }}/></div>
+        <div className="logo" onClick={() => { setMenu('Dashboard') }}>
+          <div className = "logo-title">ƏJDAHA<br/><span>dönər</span></div>
+        </div>
         <Menu
           theme="dark"
           mode="inline"
@@ -43,25 +45,25 @@ function Main() {
             </Link>
           </Menu.Item>
           <Menu.Item key="Customer" icon={<UserOutlined />}>
-            <Link to = "/Customer">
-            Customers
+            <Link to="/Customer">
+              Customers
             </Link>
-            </Menu.Item>
+          </Menu.Item>
           <Menu.Item key="Tickets" icon={<BellOutlined />}>
-          <Link to = "/Tickets">
-            Tickets
+            <Link to="/Tickets">
+              Tickets
             </Link>
-            </Menu.Item>
+          </Menu.Item>
           <Menu.Item key="Reports" icon={<FileTextOutlined />}>
-          <Link to = "/Reports">
-            Reports
+            <Link to="/Reports">
+              Reports
             </Link>
-            </Menu.Item>
+          </Menu.Item>
           <Menu.Item key="MAIL" icon={<MailOutlined />}>
-          <Link to = "/Communication">
-            SMS / MAIL
+            <Link to="/Communication">
+              SMS / MAIL
             </Link>
-            </Menu.Item>
+          </Menu.Item>
         </Menu>
       </Sider>
       <Layout className="site-layout">
@@ -86,22 +88,22 @@ function Main() {
               <CustomerTicketTable />
             </Route>
             <Route exact path="/Create/Customer">
-              <CreateCustomer title="Create customer"/>
+              <CreateCustomer title="Create customer" />
             </Route>
             <Route exact path="/Edit/Customer">
-              <EditCustomer title="Edit customer"/>
+              <EditCustomer title="Edit customer" />
             </Route>
             <Route exact path="/Create/Ticket">
-              <CreateTicket title="Create ticket"/>
+              <CreateTicket title="Create ticket" />
             </Route>
             <Route exact path="/Edit/Ticket">
-              <EditTicket title="Edit ticket"/>
+              <EditTicket title="Edit ticket" />
             </Route>
             <Route exact path="/Reports">
-              <Reports/>
+              <Reports />
             </Route>
             <Route exact path="/Communication">
-              <Communication/>
+              <Communication />
             </Route>
             <Redirect to="/Dashboard" />
           </Switch>

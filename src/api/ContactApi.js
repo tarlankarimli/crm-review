@@ -1,7 +1,7 @@
 import API from './index';
 
-const getContacts = () => {
-    return API.get("/contacts");
+const getCustomer = () => {
+    return API.get("/customers");
 }
 
 const remove = (id) => {
@@ -16,4 +16,4 @@ const getOne = (id) => {
     return API.get(`/contacts/${id}`)
 }
 
-export {getContacts, remove, update, getOne};
+export {getCustomer, remove, update, getOne};

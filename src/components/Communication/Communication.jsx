@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Receivers from './Modal/Receivers';
 
 import {
   Form,
@@ -11,6 +12,7 @@ import {
 function Communication() {
   const [componentSize, setComponentSize] = useState('large');
   const [switchCase, setSwitchCase] = useState('SMS');
+  const [visible, setVisible] = useState(false)
   const onFormLayoutChange = ({ size }) => {
     setComponentSize(size);
   };
@@ -43,13 +45,15 @@ function Communication() {
               <Switch onChange={onChange} />
             </div>
             <Form.Item>
-              <Button type="primary" className="toggle-btn" >Send</Button>
+              <Button type="primary" className="toggle-btn" onClick={()=> {setVisible(true)}}>Send to</Button>
             </Form.Item>
           </div>
         </div>
-
-
       </Form>
+      <Receivers 
+          visible={visible}
+          setVisible = {setVisible}
+          />
     </div>
   )
 }

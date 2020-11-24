@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Receivers from './Modal/Receivers';
+import ReceiversModal from './Modal/ReceiversModal';
 
 import {
   Form,
@@ -50,7 +50,7 @@ function Communication() {
           </div>
         </div>
       </Form>
-      <Receivers 
+      <ReceiversModal 
           visible={visible}
           setVisible = {setVisible}
           />

@@ -2,15 +2,17 @@ import React, { useState, useContext } from 'react';
 import ticketContext from 'components/context/ticketContext'
 
 import {
-    Form,
-    Input,
-    Button,
-    DatePicker,
-    Spin,
-  } from 'antd';
+  Form,
+  Input,
+  Button,
+  DatePicker,
+  Spin, Select,
+} from 'antd';
   
 function CreateTicket() {
   const {ticket} = useContext(ticketContext);
+  const { Option } = Select;
+
   let spin = {loading: true};
     const [componentSize, setComponentSize] = useState('large');
     const onFormLayoutChange = ({ size }) => {
@@ -24,9 +26,13 @@ function CreateTicket() {
         layout="horizontal"
         initialValues={{ size: "size" }}
         onValuesChange={onFormLayoutChange}
-      >        
-        <Form.Item label="Priority">
-          <Input value={ticket.priority}/>
+      >
+        <Form.Item label="Priority" name="priority">
+          <Select placeholder="Please select a ticket priority">
+            <Option value="LOW">LOW</Option>
+            <Option value="MEDIUM">MEDIUM</Option>
+            <Option value="HIGH">HIGH</Option>
+          </Select>
         </Form.Item>
         <Form.Item label="Category">
           <Input value={ticket.category}/>
@@ -43,13 +49,6 @@ function CreateTicket() {
         </Form.Item>
         <Spin className="load-spin"/>
         </div>
-        
-        <Form.Item label="Created">
-          <DatePicker value={ticket.created}/>
-        </Form.Item>
-        <Form.Item label="updated">
-          <DatePicker value={ticket.updated}/>
-        </Form.Item>  
         <Form.Item label="Status">
           <Input value={ticket.status}/>
         </Form.Item>     

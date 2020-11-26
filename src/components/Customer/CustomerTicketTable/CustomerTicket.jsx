@@ -1,20 +1,8 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { Table, Input, InputNumber, Form } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-
-
-const originData = [];
-
-originData.push({
-  id: `1`,
-  priority: `HIGH`,
-  category: `phone`,
-  header: `report`,
-  description: `description `,
-  created: `14.06.2019`,
-  updated: `02.07.2020`,
-  status: `WAITING`,
-});
+import { useRouteMatch } from 'react-router'
+import * as CustomerApi from "../../../api/ContactApi";
 
 const EditableCell = ({
   editing,
@@ -52,26 +40,22 @@ const EditableCell = ({
 };
 
 const CustomerTicket = () => {
+  const routeMatch = useRouteMatch();
   const [form] = Form.useForm();
-  const [data, setData] = useState(originData);
+  const [data, setData] = useState([]);
   const [editingKey, setEditingKey] = useState('');
 
   const isEditing = (record) => record.key === editingKey;
 
-  const edit = (record) => {
-    form.setFieldsValue({
-      id: '',
-      priority: '',
-      category: '',
-      header: '',
-      description: '',
-      created: '',
-      updated: '',
-      status: '',
-      ...record,
-    });
-    setEditingKey(record.key);
-  };
+  useEffect(() => {
+    //console.log(routeMatch, history)
+    CustomerApi
+        .getCustomerTickets(routeMatch.params.id)
+        .then(resp => {
+          setData(resp.data.object);
+        })
+        .catch();
+  }, [])
 
   const columns = [
     {

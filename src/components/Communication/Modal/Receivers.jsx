@@ -9,12 +9,12 @@ const columns = [
 ];
 
 const data = ["Tarlan Karimli"];
-for (let i = 0; i < data.length; i++) {
+/*for (let i = 0; i < data.length; i++) {
   data.push({
     key: i,
     name: `Edward King ${i}`,
   });
-}
+}*/
 
 class Receivers extends React.Component {
   state = {

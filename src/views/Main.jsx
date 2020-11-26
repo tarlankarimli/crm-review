@@ -84,7 +84,7 @@ function Main() {
             <Route exact path="/Tickets">
               <Tickets />
             </Route>
-            <Route exact path="/Customer/Ticket">
+            <Route exact path="/Customer/Ticket/:id">
               <CustomerTicketTable />
             </Route>
             <Route exact path="/Create/Customer">

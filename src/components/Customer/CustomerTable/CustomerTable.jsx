@@ -3,35 +3,22 @@ import { Table, Form } from 'antd';
 import { DeleteOutlined, EditOutlined, BellOutlined, EyeOutlined } from '@ant-design/icons';
 import Details from '../Modals/Details';
 import { Link } from 'react-router-dom';
-import * as CustomertApi from 'api/ContactApi';
-
-const getRefresh = () => {
-  
-}
-
-// useEffect(() => {    
-//   getRefresh();
-//   // eslint-disable-next-line
-// }, [])
-
-const originData = [];
-
-originData.push({
-  id: `1`,
-  name: `Edrward`,
-  surname: `Norton`,
-  phone: `+9942222222`,
-  email: `Norton@gmail.com`,
-  birthdate: `29.06.1994`,
-  communication: `SMS`,
-});
+import * as CustomerApi from 'api/ContactApi';
 
 
 const EditableTable = () => {
   const [form] = Form.useForm();
-  const [data, setData] = useState(originData);
+  const [data, setData] = useState([]);
   const [visible, setVisible] = useState(false)
 
+  useEffect(() => {
+    CustomerApi
+        .getCustomers()
+        .then(resp => {
+          setData(resp.data.object);
+        })
+        .catch();
+  }, [])
 
   const columns = [
     {
@@ -54,22 +41,20 @@ const EditableTable = () => {
     },
     {
       title: 'phone',
-      dataIndex: 'phone',
+      dataIndex: 'phoneNumber',
       width: '20%',
       editable: true,
     }, {
       title: 'details',
       key: 'action',
-      render: () => <a><EyeOutlined onClick={()=> {
-        setVisible(true)
+      render: (record) => <a><EyeOutlined onClick={()=> {
+        setVisible(record)
       }}/></a>,
     },
     {
       title: 'edit',
       key: 'action',
-      render: (record) => <Link to="/Edit/Customer"><EditOutlined onClick={()=> {
-
-      }}/></Link>,
+      render: (record) => <Link to="/Edit/Customer/"><EditOutlined/></Link>,
     },
     {
       title: 'delete',
@@ -80,7 +65,7 @@ const EditableTable = () => {
     {
       title: 'tickets',
       key: 'tickets',
-      render: () => <Link to="/Customer/Ticket"><BellOutlined /></Link>,
+      render: (record) => <Link to={`/Customer/Ticket/${record.id}`}><BellOutlined /></Link>,
     },
   ];
   const mergedColumns = columns.map((col) => {
@@ -111,7 +96,7 @@ const EditableTable = () => {
           visible={visible}
           setVisible = {setVisible}
           name="Customer name"
-          data ={data}
+          data ={setVisible}
           />
     </>
   );

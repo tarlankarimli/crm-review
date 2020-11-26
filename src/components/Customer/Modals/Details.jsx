@@ -3,21 +3,21 @@ import { Modal } from 'antd';
 import customerContext from 'components/context/customerContext'
 
 function Details({visible, setVisible}) {
-    const {customer} = useContext(customerContext);
+    //const {customer} = useContext(customerContext);
     return (
         <div>
             <Modal
-                title={`${customer.name} ${customer.surname}`}
+                title={`${visible.name} ${visible.surname}`}
                 visible={visible}
                 onCancel={()=>{setVisible(false)}}
                 footer = {false}
             >
                 <h3>Email</h3>
-                <p>{customer.email}</p>
+                <p>{visible.email}</p>
                 <h3>Birth date</h3>
-                <p>{customer.birthdate}</p>
+                <p>{visible.birthDate}</p>
                 <h3>Communication</h3>
-                <p>{customer.communication}</p>
+                <p>{visible.preferredCommunication}</p>
             </Modal>
         </div>
     )
